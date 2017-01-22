@@ -1,4 +1,6 @@
 <%@page import="com.onelogin.saml2.Auth"%>
+<%@page import="com.okta.demo.OktaAPI"%>
+<%@page import="com.okta.demo.AppLink"%>
 <%@page import="java.util.Collection"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
@@ -65,15 +67,27 @@
       				<tbody>
     		<%				
 				Collection<String> keys = attributes.keySet();
+                                String username = null;
 				for(String name :keys){
 					out.println("<tr><td>" + name + "</td><td>");
 					List<String> values = attributes.get(name);
 					for(String value :values) {
-						out.println("<li>" + value + "</li>");
+                                            out.println("<li>" + value + "</li>");
+                                            if (name.equals("username")) {
+                                                username = value;
+                                            }
 					}
 					
 					out.println("</td></tr>");
-				}
+                                }
+                                    
+                                AppLink[] links = OktaAPI.getAppLinks(username);
+                                out.println("<tr><td>Available App Links</td><td>");
+                                StringBuilder sb =  new StringBuilder();
+                                for (AppLink link : links) {
+                                    sb.append(link.getLabel()).append(" | ");
+                                }
+                                out.println("<li>" + sb.toString() + "</li></td></tr>");
 			%>
 					</tbody>
 				</table>
