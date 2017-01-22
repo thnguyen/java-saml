@@ -73,7 +73,7 @@
 					List<String> values = attributes.get(name);
 					for(String value :values) {
                                             out.println("<li>" + value + "</li>");
-                                            if (name.equals("username")) {
+                                            if (name.equals("Login")) {
                                                 username = value;
                                             }
 					}
