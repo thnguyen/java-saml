@@ -12,7 +12,7 @@
 			auth.login();
 		} else {
 			String x = request.getPathInfo();
-			auth.login("/java-saml-tookit-jspsample/attrs.jsp");
+			auth.login("/attrs.jsp");
 		}
 	%>
 </body>
