@@ -16,11 +16,11 @@ public class OktaAPI {
 
     public static AppLink[] getAppLinks(String login) {
         try {
-            String endpoint = "https://dev-197134.oktapreview.com/api/v1/users/" + login + "/appLinks";
+            String endpoint = "https://dev-890166.oktapreview.com/api/v1/users/" + login + "/appLinks";
             String resp = Request.Get(endpoint)
                     .addHeader("Accept", "application/json")
                     .addHeader("Content-Type", "application/json")
-                    .addHeader("Authorization", "SSWS 00BQU9KvpIZ0heCpFkQ0QqfEYikBp2NNs2-iDiCr11")
+                    .addHeader("Authorization", "SSWS 00Vh-9IO21oaUVYLpckmmNl5NTYUagBXrBvLX_arWP")
                     .connectTimeout(1000)
                     .socketTimeout(1000)
                     .execute()
